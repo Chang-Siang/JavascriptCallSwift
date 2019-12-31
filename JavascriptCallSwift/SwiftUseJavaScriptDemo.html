@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios
+
+        function goToSecondPage() {
+            let fake_pageID = 378
+            if (isiOS) {
+                console.log('isiOS')
+                javaScriptCallToSwift.goToSecondPage(fake_pageID)
+            } else {
+                alert("Not viewing in webview");
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>JS Call Swift</h1>
+    <div>
+        <button onclick='javaScriptCallToSwift.consloe("test")''>Call Swift func(test)</button>
+        <button onclick="goToSecondPage()">Call Swift func(goToStore)</button>
+    </div>
+</body>
+</html>
